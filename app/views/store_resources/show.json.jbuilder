@@ -1,0 +1,1 @@
+json.partial! "store_resources/store_resource", store_resource: @store_resource

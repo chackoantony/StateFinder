@@ -1,0 +1,32 @@
+<%= form_for(store_resource) do |f| %>
+  <% if store_resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_resource.errors.count, "error") %> prohibited this store_resource from being saved:</h2>
+
+      <ul>
+      <% store_resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :resource_type %>
+    <%= f.text_field :resource_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :changed_at %>
+    <%= f.datetime_select :changed_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :changed_values %>
+    <%= f.text_field :changed_values %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
