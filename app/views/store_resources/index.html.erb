@@ -1,31 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <%= render 'filter_form' %>  
+</div>
 
-<h1>Store Resources</h1>
+<div>
+  <h1>Properties</h1>
+</div>
 
-<table>
+<table class="table table-bordered">
   <thead>
-    <tr>
-      <th>Resource type</th>
-      <th>Changed at</th>
-      <th>Changed values</th>
-      <th colspan="3"></th>
-    </tr>
+    <th>Property</th>
+    <th>Value</th>
   </thead>
-
-  <tbody>
-    <% @store_resources.each do |store_resource| %>
-      <tr>
-        <td><%= store_resource.resource_type %></td>
-        <td><%= store_resource.changed_at %></td>
-        <td><%= store_resource.changed_values %></td>
-        <td><%#= link_to 'Show', store_resource %></td>
-        <td><%#= link_to 'Edit', edit_store_resource_path(store_resource) %></td>
-        <td><%#= link_to 'Destroy', store_resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <tbody id="result"></tbody>
 </table>
-
-<br>
-
-<%#= link_to 'New Store Resource', new_store_resource_path %>

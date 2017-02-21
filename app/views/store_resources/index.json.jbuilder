@@ -1,1 +1,0 @@
-json.array! @store_resources, partial: 'store_resources/store_resource', as: :store_resource

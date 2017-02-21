@@ -1,0 +1,26 @@
+<div class="panel panel-default" ng-controller="StateFilter as filter">
+  <div class="panel-body">
+    <form class="form-inline" ng-submit="getState()">
+      <div class="">
+        <div class="row">
+          <div class="col-md-3">
+            <select ng-model="resource_type" ng-options="r for r in resource_types" ng-change="updateResourceId()" class="form-control" required>
+              <option value="">Select Resource Type</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <select ng-model="resource_id" ng-options="r for r in resource_ids" class="form-control" required>
+              <option value="">Select Resource ID</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input datetime-picker ng-model="time" class="form-control" placeholder="Time Point" required/>
+          </div>
+          <div class="col-md-3">  
+            <input type="submit" value="Check State" class="btn btn-primary">
+          </div>
+        </div>  
+      </div>  
+    </form>
+  </div>
+</div>    
