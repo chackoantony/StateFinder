@@ -1,15 +1,25 @@
 <div>
-  <%= render 'filter_form' %>  
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#filter" aria-controls="home" role="tab" data-toggle="tab">Filter</a></li>
+    <li role="presentation"><a href="#import" aria-controls="profile" role="tab" data-toggle="tab">Data Import</a></li>
+  </ul>
+
+  <div class="tab-content home-page">
+    <div role="tabpanel" class="tab-pane active" id="filter">
+      <%= render 'filter_form' %>  
+      <div><h1>Properties</h1></div>
+      <table class="table table-bordered">
+        <thead>
+          <th>Property</th>
+          <th>Value</th>
+        </thead>
+        <tbody id="result"></tbody>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="import">
+      <%= render 'import_form' %>      
+    </div>
+  </div>
+
 </div>
 
-<div>
-  <h1>Properties</h1>
-</div>
-
-<table class="table table-bordered">
-  <thead>
-    <th>Property</th>
-    <th>Value</th>
-  </thead>
-  <tbody id="result"></tbody>
-</table>

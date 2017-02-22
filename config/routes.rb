@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'store_resources#index'
 
+  
   get '/resource_ids', to: "store_resources#resource_ids"
   get '/store_resources/state', to: "store_resources#state"
+  post '/import_data', to: "state_changes#import_data"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

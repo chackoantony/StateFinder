@@ -5,3 +5,26 @@
 .top-margin{
   margin-top: 100px;
 }
+
+.home-page.tab-content{
+  margin-top: 50px;
+}
+
+form{
+  .progress {
+    line-height: 15px;
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+    margin-bottom: 0px;
+    div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+  }
+  }
+
+  .upload-info{
+  margin-top: 20px;
+  }  
+}

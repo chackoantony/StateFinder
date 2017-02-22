@@ -1,0 +1,18 @@
+<div ng-controller="Importer">
+  <form class="form-inline" name="importForm" >
+    <div class="form-group">
+      <input type="file" ngf-select ng-model="csvFile" accept=".csv" name="file" required  ngf-model-invalid="errorFile" class="form-control">  
+    </div>
+    
+    <button ng-disabled="!importForm.$valid" ng-click="importCSV(csvFile)" class="btn btn-primary">Import</button>
+  
+    <div class="upload-info">
+      <span class="progress" ng-show="csvFile.progress >= 0">
+        <div style="width:{{csvFile.progress}}%" ng-bind="csvFile.progress + '%'"></div>
+      </span>
+      <span ng-show="csvFile.result" class="text-success">Data Imported Successfully</span>
+      <span class="text-danger" ng-show="errorMsg">Erro! {{errorMsg}}</span>  
+    </div>
+  </form> 
+</div>
+

@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap.min
+//= require angular
+//= require angularjs-datetime-picker
+//= require ng-file-upload
+//= require state_filter

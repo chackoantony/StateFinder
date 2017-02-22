@@ -12,7 +12,7 @@ RSpec.describe StateChange, type: :model do
 
   describe '#import' do
     it 'Imports data from csv file' do
-      file = "#{Rails.root}/spec/sample_files/state_data.csv"
+      file = File.open("#{Rails.root}/spec/sample_files/state_data.csv")
       StateChange.import(file)
       expect(StateChange.count).to eq 7
     end

@@ -1,8 +1,8 @@
 (function(){
 
-  var app = angular.module('statusChecker', ['angularjs-datetime-picker']);
+  var app = angular.module('statusChecker', ['angularjs-datetime-picker', 'ngFileUpload']);
 
-  app.controller('StateFilter', ["$scope", "$http",  function ($scope, $http) {
+  app.controller('StateFilter', ["$scope", "$http", function ($scope, $http) {
     $scope.resource_type = ''
     $scope.time = ''
     $scope.resource_id = ''
@@ -33,7 +33,32 @@
       })
       $('tbody#result').html(ui)
     }
+   
+  }]);
 
+  app.controller('Importer', ["$scope", 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+    
+    $scope.importCSV = function(file) {
+      file.upload = Upload.upload({
+        url: '/import_data',
+        data: {file: file},
+      });
+
+      file.upload.then(function (response) {
+        $timeout(function () {
+          file.result = response.data;
+          $scope.errorMsg = null
+        });
+      }, function (response) {
+        if (response.status > 0)
+          file.result = null
+          $scope.errorMsg = response.status + ': ' + response.data.error;
+      }, function (evt) {
+        file.progress = parseInt(100.0 * evt.loaded / evt.total);
+      });
+    }
+      
   }]);  
+
 
 })();  

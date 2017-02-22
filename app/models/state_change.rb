@@ -9,7 +9,7 @@ class StateChange < ApplicationRecord
 
   def self.import(file)
     transaction do
-      CSV.foreach(file, headers: true) do |row|
+      CSV.foreach(file.path, headers: true) do |row|
         resource = StoreResource.find_or_create_by(resource_type: row['object_type'], resource_id: row['object_id'])
         create!(changed_at: Time.at(row['timestamp'].to_i), changed_values: JSON.parse(row['object_changes']),
                 store_resource: resource)
